@@ -7,6 +7,7 @@ public class Main {
 
 
     public static void main(String[] args) {
+
         Integer[] arrInt = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         String[] arrStr = {"A", "B", "C", "D", "E", "G", "H"};
 
@@ -51,7 +52,7 @@ public class Main {
 
         System.out.println(appleBox1.getFruit());
         System.out.println(appleBox2.getFruit());
-
+        int i =1;
         System.out.println(appleBox2.compare(orangeBox));
 
     }
