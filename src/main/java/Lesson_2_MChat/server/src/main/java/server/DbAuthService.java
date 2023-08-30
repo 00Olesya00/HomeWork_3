@@ -3,9 +3,30 @@ package Lesson_2_MChat.server.src.main.java.server;
 import org.sqlite.SQLiteException;
 
 import java.sql.*;
-
 public class DbAuthService implements AuthService {
 
+    @Override
+    public boolean ChangeNick(String oldNickname, String newNickname) {
+
+        try (PreparedStatement checkNick = DataSource.getConnection().prepareStatement("SELECT nickname FROM clients WHERE nickname =?;");) {
+            checkNick.setString(1, newNickname);
+            try (ResultSet rs = checkNick.executeQuery()) {
+                if (rs.next()) {
+                    return false;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try (PreparedStatement changeNick = DataSource.getConnection().prepareStatement("UPDATE clients SET nickname = ? WHERE nickname =?;");) {
+            changeNick.setString(1, newNickname);
+            changeNick.setString(2, oldNickname);
+            changeNick.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
 
     @Override
     public String getNicknameByLoginAndPassword(String login, String password) {
@@ -16,6 +37,7 @@ public class DbAuthService implements AuthService {
             if (rs.next()) {
                 return rs.getString("nickname");
             }
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -42,5 +64,4 @@ public class DbAuthService implements AuthService {
         return false;
     }
 }
-
 
