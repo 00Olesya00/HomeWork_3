@@ -1,0 +1,29 @@
+.root{
+    -fx-font-size: 18;
+}
+
+.button{
+    -fx-background-color: #b99c03;
+}
+
+.button:hover{
+    -fx-background-color: #cc3603;
+    -fx-font-weight: bold;
+}
+
+#btnAdd{
+    -fx-background-color: #09a15d;
+    -fx-font-size: 20;
+}
+
+#btnAdd:hover{
+    -fx-background-color: #a6a4f1;
+    -fx-font-size: 22;
+}
+
+.text-area{
+    -fx-text-fill: #4949f6;
+    -fx-highlight-fill: #035d6e;
+    -fx-highlight-text-fill: #ad83d2;
+    -fx-control-inner-background: rgba(206, 183, 120, 0.49);
+}
