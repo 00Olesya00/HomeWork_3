@@ -52,11 +52,9 @@ public class Main {
 
         System.out.println(appleBox1.getFruit());
         System.out.println(appleBox2.getFruit());
-        int i =1;
         System.out.println(appleBox2.compare(orangeBox));
 
     }
-
 
 //1. Написать метод, который меняет два элемента массива местами (массив может быть любого ссылочного типа);
 
